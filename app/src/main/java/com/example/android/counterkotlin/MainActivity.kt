@@ -17,26 +17,16 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById(R.id.button) as Button
 
         button.setOnClickListener() {
-        txt.start()
+            txt()
         }
     }
 
-        val txt = object : Thread(){
-            override fun run() {
-                while (!isInterrupted){
-                    try {
-                        Thread.sleep(1000)
-                        runOnUiThread{
-                            counter += 1
-                            textview.text = counter.toString()
-                        }
-                    } catch (e : InterruptedException){
-                        e.printStackTrace()
-                    }
-                }
-
-            }
-        }
-
+    private fun txt(){
+        counter += 1
+        textview.text = counter.toString()
     }
+}
+
+
+
 
